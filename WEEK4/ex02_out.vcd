@@ -1,0 +1,56 @@
+$date
+	Tue Mar 30 16:01:09 2021
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	10ns
+$end
+$scope module ex03_tb $end
+$var wire 1 ! outC $end
+$var wire 1 " outB $end
+$var wire 1 # outA $end
+$var reg 1 $ in1 $end
+$var reg 1 % in2 $end
+$var reg 1 & in3 $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+x&
+x%
+x$
+x#
+x"
+x!
+$end
+#100
+0"
+0#
+0!
+0&
+0%
+0$
+#200
+1&
+#300
+0&
+1%
+#400
+1&
+#500
+0&
+0%
+1$
+#600
+1&
+#700
+1#
+1!
+0&
+1%
+#800
+1"
+1&
+#900

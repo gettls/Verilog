@@ -1,0 +1,97 @@
+#! c:/iverilog-x64/bin/vvp
+:ivl_version "10.1 (stable)" "(v10_1_1)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 9;
+:vpi_module "system";
+:vpi_module "vhdl_sys";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_00000000027d4fa0 .scope module, "final" "final" 2 5;
+ .timescale -9 -9;
+v0000000002830710_0 .var "inA", 0 0;
+v00000000028305d0_0 .var "inB", 0 0;
+v0000000002830530_0 .net "out", 0 0, L_00000000028313e0;  1 drivers
+S_00000000027a3060 .scope module, "final" "exec" 2 10, 3 1 0, S_00000000027d4fa0;
+ .timescale -9 -9;
+    .port_info 0 /INPUT 1 "in1"
+    .port_info 1 /INPUT 1 "in2"
+    .port_info 2 /OUTPUT 1 "result"
+v0000000002830d50_0 .net "in1", 0 0, v0000000002830710_0;  1 drivers
+v0000000002830670_0 .net "in2", 0 0, v0000000002830710_0;  alias, 1 drivers
+v0000000002830210_0 .net "out1", 0 0, L_00000000027de0b0;  1 drivers
+v0000000002831110_0 .net "outA", 0 0, L_00000000027de1d0;  1 drivers
+v0000000002830cb0_0 .net "outB", 0 0, L_00000000028312e0;  1 drivers
+v0000000002830990_0 .net "result", 0 0, L_00000000028313e0;  alias, 1 drivers
+S_00000000027a31e0 .scope module, "a1" "AND" 3 6, 4 1 0, S_00000000027a3060;
+ .timescale -9 -9;
+    .port_info 0 /INPUT 1 "in1"
+    .port_info 1 /INPUT 1 "in2"
+    .port_info 2 /OUTPUT 1 "out1"
+L_00000000027de1d0 .functor AND 1, v0000000002830710_0, v0000000002830710_0, C4<1>, C4<1>;
+v00000000027a3bd0_0 .net "in1", 0 0, v0000000002830710_0;  alias, 1 drivers
+v00000000027a3360_0 .net "in2", 0 0, v0000000002830710_0;  alias, 1 drivers
+v00000000027d5120_0 .net "out1", 0 0, L_00000000027de1d0;  alias, 1 drivers
+S_0000000000fee400 .scope module, "a2" "NOT" 3 8, 4 8 0, S_00000000027a3060;
+ .timescale -9 -9;
+    .port_info 0 /INPUT 1 "in1"
+    .port_info 1 /OUTPUT 1 "out1"
+L_00000000027de0b0 .functor NOT 1, v0000000002830710_0, C4<0>, C4<0>, C4<0>;
+v00000000027d51c0_0 .net "in1", 0 0, v0000000002830710_0;  alias, 1 drivers
+v0000000000fee580_0 .net "out1", 0 0, L_00000000027de0b0;  alias, 1 drivers
+S_0000000000fee620 .scope module, "a3" "AND" 3 9, 4 1 0, S_00000000027a3060;
+ .timescale -9 -9;
+    .port_info 0 /INPUT 1 "in1"
+    .port_info 1 /INPUT 1 "in2"
+    .port_info 2 /OUTPUT 1 "out1"
+L_00000000028312e0 .functor AND 1, v0000000002830710_0, L_00000000027de0b0, C4<1>, C4<1>;
+v0000000000fed580_0 .net "in1", 0 0, v0000000002830710_0;  alias, 1 drivers
+v0000000000fed620_0 .net "in2", 0 0, L_00000000027de0b0;  alias, 1 drivers
+v0000000000fed6c0_0 .net "out1", 0 0, L_00000000028312e0;  alias, 1 drivers
+S_0000000000fed760 .scope module, "a4" "OR" 3 11, 4 15 0, S_00000000027a3060;
+ .timescale -9 -9;
+    .port_info 0 /INPUT 1 "in1"
+    .port_info 1 /INPUT 1 "in2"
+    .port_info 2 /OUTPUT 1 "out1"
+L_00000000028313e0 .functor OR 1, L_00000000027de1d0, L_00000000028312e0, C4<0>, C4<0>;
+v0000000000fed8e0_0 .net "in1", 0 0, L_00000000027de1d0;  alias, 1 drivers
+v0000000002830120_0 .net "in2", 0 0, L_00000000028312e0;  alias, 1 drivers
+v0000000002830fd0_0 .net "out1", 0 0, L_00000000028313e0;  alias, 1 drivers
+    .scope S_00000000027d4fa0;
+T_0 ;
+    %vpi_call 2 13 "$dumpfile", "final_out.vcd" {0 0 0};
+    %vpi_call 2 14 "$dumpvars", 32'sb00000000000000000000000000000001 {0 0 0};
+    %end;
+    .thread T_0;
+    .scope S_00000000027d4fa0;
+T_1 ;
+    %delay 10, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000000002830710_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000000028305d0_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000000002830710_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000000028305d0_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000000002830710_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000000028305d0_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000000002830710_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000000028305d0_0, 0, 1;
+    %delay 10, 0;
+    %vpi_call 2 22 "$finish" {0 0 0};
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 5;
+    "N/A";
+    "<interactive>";
+    "bench.v";
+    "./exec.v";
+    "./modules.v";

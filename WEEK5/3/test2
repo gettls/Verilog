@@ -1,0 +1,84 @@
+#! c:/iverilog-x64/bin/vvp
+:ivl_version "10.1 (stable)" "(v10_1_1)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 9;
+:vpi_module "system";
+:vpi_module "vhdl_sys";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_000000000086a930 .scope module, "B" "B" 2 8;
+ .timescale -9 -9;
+    .port_info 0 /INPUT 1 "in1"
+    .port_info 1 /INPUT 1 "in2"
+    .port_info 2 /OUTPUT 1 "out2"
+o000000000086cbd8 .functor BUFZ 1, C4<z>; HiZ drive
+L_00000000008698c0 .functor NOT 1, o000000000086cbd8, C4<0>, C4<0>, C4<0>;
+o000000000086cba8 .functor BUFZ 1, C4<z>; HiZ drive
+L_000000000086a300 .functor AND 1, o000000000086cba8, L_00000000008698c0, C4<1>, C4<1>;
+v000000000086aab0_0 .net *"_s0", 0 0, L_00000000008698c0;  1 drivers
+v000000000086a6c0_0 .net "in1", 0 0, o000000000086cba8;  0 drivers
+v00000000011ee960_0 .net "in2", 0 0, o000000000086cbd8;  0 drivers
+v000000000086a260_0 .net "out2", 0 0, L_000000000086a300;  1 drivers
+S_00000000011ee660 .scope module, "ex" "ex" 2 15;
+ .timescale -9 -9;
+    .port_info 0 /INPUT 1 "out1"
+    .port_info 1 /INPUT 1 "out2"
+    .port_info 2 /OUTPUT 1 "result"
+o000000000086ccc8 .functor BUFZ 1, C4<z>; HiZ drive
+o000000000086ccf8 .functor BUFZ 1, C4<z>; HiZ drive
+L_0000000000833100 .functor OR 1, o000000000086ccc8, o000000000086ccf8, C4<0>, C4<0>;
+v0000000000869820_0 .net "out1", 0 0, o000000000086ccc8;  0 drivers
+v00000000011e77f0_0 .net "out2", 0 0, o000000000086ccf8;  0 drivers
+v00000000011e7890_0 .net "result", 0 0, L_0000000000833100;  1 drivers
+S_00000000011ee7e0 .scope module, "test2" "test2" 3 4;
+ .timescale -9 -9;
+v00000000008be280_0 .var "inA", 0 0;
+v00000000008bd9c0_0 .var "inB", 0 0;
+v00000000008bd7e0_0 .net "out", 0 0, L_0000000000833170;  1 drivers
+S_00000000011e7930 .scope module, "test" "A" 3 9, 2 1 0, S_00000000011ee7e0;
+ .timescale -9 -9;
+    .port_info 0 /INPUT 1 "in1"
+    .port_info 1 /INPUT 1 "in2"
+    .port_info 2 /OUTPUT 1 "out1"
+L_0000000000833170 .functor AND 1, v00000000008be280_0, v00000000008be280_0, C4<1>, C4<1>;
+v00000000011e7ab0_0 .net "in1", 0 0, v00000000008be280_0;  1 drivers
+v00000000011e7b50_0 .net "in2", 0 0, v00000000008be280_0;  alias, 1 drivers
+v0000000000833060_0 .net "out1", 0 0, L_0000000000833170;  alias, 1 drivers
+    .scope S_00000000011ee7e0;
+T_0 ;
+    %vpi_call 3 12 "$dumpfile", "out.vcd" {0 0 0};
+    %vpi_call 3 13 "$dumpvars", 32'sb00000000000000000000000000000001 {0 0 0};
+    %end;
+    .thread T_0;
+    .scope S_00000000011ee7e0;
+T_1 ;
+    %delay 10, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000000008be280_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000000008bd9c0_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000000008be280_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000000008bd9c0_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000000008be280_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000000008bd9c0_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000000008be280_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000000008bd9c0_0, 0, 1;
+    %delay 10, 0;
+    %vpi_call 3 21 "$finish" {0 0 0};
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "./ex.v";
+    "tb.v";
