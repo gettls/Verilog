@@ -10,6 +10,4 @@ module exec(in1, in2, result);
     AND a3(in1,out1,outB); // in1 & ~in2
 
     OR a4(outA,outB,result); // out1 | outB
-
-    
 endmodule
