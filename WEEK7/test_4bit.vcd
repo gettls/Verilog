@@ -1,0 +1,56 @@
+$date
+	Tue Apr 13 17:26:53 2021
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ns
+$end
+$scope module bench $end
+$var wire 1 ! out2 $end
+$var wire 4 " out1 [3:0] $end
+$var reg 4 # in1 [3:0] $end
+$var reg 4 $ in2 [3:0] $end
+$var reg 4 % inC [3:0] $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+bx %
+bx $
+bx #
+bx "
+x!
+$end
+#10
+0!
+b1 "
+b0 %
+b0 $
+b1 #
+#20
+b1000 "
+b110 $
+b10 #
+#30
+b0 "
+1!
+b1000 $
+b1000 #
+#40
+b10 "
+0!
+b1 %
+b0 $
+b1 #
+#50
+b1001 "
+b110 $
+b10 #
+#60
+b10 "
+1!
+b1000 $
+b1001 #
+#70
