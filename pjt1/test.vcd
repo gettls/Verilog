@@ -1,0 +1,35 @@
+$date
+	Mon May 03 01:36:38 2021
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ns
+$end
+$scope module bench $end
+$var wire 1 ! Out $end
+$var reg 1 " inA $end
+$var reg 1 # inB $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+x#
+x"
+x!
+$end
+#10
+1!
+0#
+0"
+#20
+0!
+1#
+#30
+0#
+1"
+#40
+1!
+1#
+#50
