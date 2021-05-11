@@ -1,0 +1,32 @@
+$date
+	Tue May 11 17:22:28 2021
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ns
+$end
+$scope module shift_tb $end
+$var wire 8 ! out [7:0] $end
+$var reg 1 " dir $end
+$var reg 8 # inA [7:0] $end
+$var reg 4 $ sh [3:0] $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+bx $
+b11111111 #
+x"
+bx !
+$end
+#10
+b11111110 !
+b1 $
+0"
+#20
+b111111 !
+b10 $
+1"
+#30
