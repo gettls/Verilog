@@ -17,7 +17,7 @@ module shift_tb;
     initial begin
         inA = 8'b11111111;
         #10 dir=1'b0; sh=4'b0001; // LEFT
-        #10 dir=1'b1; sh=4'b0010; // RIGHT
+        #10 dir=1'b1; sh=4'b0110; // RIGHT
         #10 $finish;        
     end
 

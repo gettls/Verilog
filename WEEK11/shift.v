@@ -6,7 +6,7 @@ module shift_m(out,In,dir,sh);
 
     reg[7:0] out;
 
-    always @(In or dir or sh) begin // always 항상 실행 // @(c) c값이 변했다면 항상 실행
+    always @(In or dir or sh) begin 
         case(dir)
            1'b0 : out = In<<sh; //LEFT
            1'b1 : out = In>>sh; //RIGHT
